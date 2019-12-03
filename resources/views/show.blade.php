@@ -24,50 +24,17 @@
             height: 100vh;
             margin: 0;
         }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .m-t-md {
-            margin-top: 30px;
-        }
     </style>
 </head>
 
 <body>
-    <div class="flex-center position-ref full-height">
-        <div class="content">
-            <h1>TinyMCE Editor with Image Upload & Database</h1>
-            <h4>Add Post</h4>
-            <br>
-            <form method="post" action="{{ route('post.store') }}" enctype="multipart/form-data">
-                @csrf
-                <textarea style="width: 100%; height: 450px" name="post" id="postTextArea" cols="30"
-                    rows="10">{!! old('post') !!}</textarea>
-
-                <button type="submit" class="btn btn-primary btn-lg m-t-md">Submit</button>
-            </form>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <a href="{{ route('post.edit', $post->id) }}" class="btn btn-outline-primary">Edit Post</a>
+                <hr>
+                {!! $post->post !!}
+            </div>
         </div>
     </div>
 

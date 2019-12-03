@@ -12,3 +12,8 @@
 */
 
 Route::get('/', 'TinyMceController@index')->name('post.index');
+Route::get('/post/{id}', 'TinyMceController@show')->name('post.show');
+Route::get('/post/{id}/edit', 'TinyMceController@edit')->name('post.edit');
+Route::post('/post', 'TinyMceController@store')->name('post.store');
+Route::put('/post/{id}', 'TinyMceController@update')->name('post.update');
+Route::post('/post/image/upload', 'TinyMceController@uploadImage')->name('post.image.upload');

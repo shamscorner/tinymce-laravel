@@ -59,12 +59,13 @@
     <div class="flex-center position-ref full-height">
         <div class="content">
             <h1>TinyMCE Editor with Image Upload & Database</h1>
-            <h4>Add Post</h4>
+            <h4>Update Post</h4>
             <br>
-            <form method="post" action="{{ route('post.store') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('post.update', $post->id) }}" enctype="multipart/form-data">
                 @csrf
-                <textarea style="width: 100%; height: 450px" name="post" id="postTextArea" cols="30"
-                    rows="10">{!! old('post') !!}</textarea>
+                @method('PUT')
+                <textarea style="width: 100%; height: 450px" name="post" id="postTextArea" cols="30" rows="10"
+                    required>{!! $post->post !!}</textarea>
 
                 <button type="submit" class="btn btn-primary btn-lg m-t-md">Submit</button>
             </form>
